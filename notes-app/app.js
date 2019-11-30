@@ -1,1 +1,3 @@
-console.log("Test");
+const getNotes = require ('./notes');
+
+console.log(getNotes());
