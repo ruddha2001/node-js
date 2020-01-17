@@ -4,7 +4,7 @@ const yargs = require ('yargs');
 const getNotes = require("./notes");
 
 //Customize yargs version
-yargs.version('1.1.0');
+yargs.version('1.1.1');
 
 //Create add command
 yargs.command({
