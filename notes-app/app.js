@@ -3,7 +3,7 @@ const yargs = require ('yargs');
 const notes = require("./notes");
 
 //Customize yargs version
-yargs.version('1.1.0');
+yargs.version('1.1.1');
 
 //Create add command
 yargs.command({
@@ -48,7 +48,7 @@ yargs.command({
 //Create list command
 yargs.command({
     command: "list",
-    describe: "List the notes",
+    describe: "List all the notes",
     handler: function(){
         console.log("Listing all notes!");
     }
