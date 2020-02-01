@@ -42,7 +42,24 @@ const loadNotes = function() {
   }
 };
 
+const removeNote = function(title) {
+  const notes = loadNotes();
+  const newNotes = notes.filter(function(note) {
+    if (note.title !== title) {
+      return true;
+    } else {
+      console.log(chalk.white.bgRed.bold(title+" was removed"));
+      return false;
+    }
+  });
+
+  if (notes.length === newNotes.length) console.log(chalk.white.bgGray.bold("No such note was found."));
+
+  saveNotes(newNotes);
+};
+
 module.exports = {
   getNotes: getNotes,
-  addNote: addNote
+  addNote: addNote,
+  removeNote: removeNote
 };
