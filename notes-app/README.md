@@ -8,7 +8,7 @@ The application has following four functionalities:
 * Read a note
 * List all notes
 
-Instead of using a databse, this app uses a simple text file on the file system of the user to store and retrieve notes.
+Instead of using a databse, this app uses a simple JSON file on the file system of the user to store and retrieve notes.
 
 #### Packages used
 - chalk: This app uses [chalk](https://www.npmjs.com) to beautify the terminal output.
