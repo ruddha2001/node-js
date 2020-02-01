@@ -23,7 +23,6 @@ yargs.command({
     },
     handler: function(argv){
         notes.addNote(argv.title,argv.body);
-        console.log(chalk.yellowBright.bgGreen.bold("Note added!"));
     }
 });
 
