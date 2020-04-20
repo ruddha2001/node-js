@@ -8,6 +8,7 @@ const getNotes = function () {
 //Adding a note to the notes array
 // sample comment
 //sample comment 2
+//sample comment 3
 const addNote = function (title, body) {
   const notes = loadNotes();
   const duplicateNotes = notes.filter(function (note) {
