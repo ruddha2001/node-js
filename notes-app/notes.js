@@ -1,21 +1,22 @@
 const fs = require("fs");
 const chalk = require("chalk");
 
-const getNotes = function() {
+const getNotes = function () {
   return "Your notes...";
 };
 
 //Adding a note to the notes array
-const addNote = function(title, body) {
+// sample comment
+const addNote = function (title, body) {
   const notes = loadNotes();
-  const duplicateNotes = notes.filter(function(note) {
+  const duplicateNotes = notes.filter(function (note) {
     return note.title === title;
   });
 
   if (duplicateNotes.length === 0) {
     notes.push({
       title: title,
-      body: body
+      body: body,
     });
 
     saveNotes(notes);
@@ -26,13 +27,13 @@ const addNote = function(title, body) {
 };
 
 //Save data from array to JSON file
-const saveNotes = function(notes) {
+const saveNotes = function (notes) {
   const dataString = JSON.stringify(notes);
   fs.writeFileSync("storage.json", dataString);
 };
 
 //Loads all notes from storage.json and returns an array
-const loadNotes = function() {
+const loadNotes = function () {
   try {
     const dataBuffer = fs.readFileSync("storage.json");
     const dataString = dataBuffer.toString();
@@ -42,18 +43,19 @@ const loadNotes = function() {
   }
 };
 
-const removeNote = function(title) {
+const removeNote = function (title) {
   const notes = loadNotes();
-  const newNotes = notes.filter(function(note) {
+  const newNotes = notes.filter(function (note) {
     if (note.title !== title) {
       return true;
     } else {
-      console.log(chalk.white.bgRed.bold(title+" was removed"));
+      console.log(chalk.white.bgRed.bold(title + " was removed"));
       return false;
     }
   });
 
-  if (notes.length === newNotes.length) console.log(chalk.white.bgGray.bold("No such note was found."));
+  if (notes.length === newNotes.length)
+    console.log(chalk.white.bgGray.bold("No such note was found."));
 
   saveNotes(newNotes);
 };
@@ -61,5 +63,5 @@ const removeNote = function(title) {
 module.exports = {
   getNotes: getNotes,
   addNote: addNote,
-  removeNote: removeNote
+  removeNote: removeNote,
 };
